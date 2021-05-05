@@ -11,7 +11,7 @@ ${SERVER}         localhost:7272
 ${BROWSER}        Firefox
 ${DELAY}          0
 ${VALID USER}     abcgroup
-${VALID PASSWORD}    abc123##
+${VALID PASSWORD} abc123##
 ${LOGIN URL}      http://${SERVER}/
 ${WELCOME URL}    http://${SERVER}/welcome.html
 ${ERROR URL}      http://${SERVER}/error.html
