@@ -1,0 +1,266 @@
+<html>
+
+<head>
+  <style>
+.row{
+  display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+    body {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('Background.jpg');
+      margin: 0px;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: 100% 100%;
+      color: white;
+    }
+
+    .btn {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 24px;
+    padding: .3rem .8rem;
+    letter-spacing: .5px;
+}
+.btn-primary, .btn-primary.disabled {
+    box-shadow: 0 2px 6px #acb5f6;
+    background-color: #6777ef;
+    border-color: #6777ef;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+.mt-3, .my-3 {
+    margin-top: 1rem!important;
+}
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+    .jumbotron {
+      background-color: #e3eaef;
+      width: 35%;
+    }
+
+    .jumbotron {
+      padding: 2rem 1rem;
+      margin-bottom: 2rem;
+      background-color: #e9ecef;
+      border-radius: .3rem;
+    }
+
+    .text-center {
+      text-align: center !important;
+    }
+
+    @media (min-width: 576px) {
+      .jumbotron {
+        padding: 4rem 2rem;
+      }
+    }
+
+    input[type=text],
+    input[type=date],
+    input[type=number],
+    select {
+      width: 40%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type=submit] {
+      width: 160px;
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+      background-color: #45a049;
+    }
+
+    #main {
+      padding-left: 30px;
+      padding-top: 10px;
+    }
+    .card .card-body p {
+    font-weight: 500;
+}
+.text-muted {
+    color: #98a6ad !important;
+}
+
+#tags_field {
+    display:table-row;
+    height: 48px;
+}
+#tags_field option {
+    display:table-cell;
+    padding-left:10px;
+    padding-right:10px;
+}
+
+  </style>
+  <script type="text/javascript">
+    function createclass(name, centre,date,cost,tags,description,imgupload) {
+      var errorText="";
+      if (name == "" || name == null) {
+        document.getElementById("name_field").style.backgroundColor="#FF9797";
+        errorText+="Name should inputed\n";
+        document.getElementById("name_field_error").style.display="block";
+      }
+      if (centre == "" || centre == null) {
+        document.getElementById("centre_field").style.backgroundColor="#FF9797";
+        errorText+="Centre should seleced\n";
+        document.getElementById("centre_field_error").style.display="block";
+    }
+      if (date == "" || date == null) {
+        document.getElementById("date_field").style.backgroundColor="#FF9797";
+        errorText+="Date should seleced\n";
+        document.getElementById("date_field_error").style.display="block";
+      }
+      if (cost == "" || cost == null) {
+        document.getElementById("cost_field").style.backgroundColor="#FF9797";
+        errorText+="Cost should inputed";
+        document.getElementById("cost_field_error").style.display="block";
+      }
+      if(errorText==""){
+      window.alert("Create yoga class success");
+      window.location = "welcome.html";
+      }else{
+      window.alert(errorText);
+      }
+    }
+
+ 
+    function dateFunction() {
+      var today = new Date();
+      var dd = today.getDate();
+      var mm = today.getMonth() + 1;
+      var yyyy = today.getFullYear();
+      if (dd < 10) {
+        dd = '0' + dd
+      }
+      if (mm < 10) {
+        mm = '0' + mm
+      }
+
+      today = yyyy + '-' + mm + '-' + dd;
+      document.getElementById("date_field").setAttribute("min", today);
+    }
+
+    function closeAlert(id,id2){
+      document.getElementById(id).style.backgroundColor="white";
+      document.getElementById(id2).style.display="none";
+    }
+
+
+  </script>
+  <title>Yoga Class</title>
+</head>
+
+<body style="overflow-x:hidden;" onload="dateFunction()">
+
+  <div id="main">
+    <h1>Yoga class</h1>
+    <form name="create_form" style="padding-top:1%"
+      onsubmit="createclass(this.name_field.value, this.centre_field.value,this.date_field.value,this.cost_field.value,this.tags_field.value,this.description_field.value,this.imgupload.value); return false;">
+      <label for="name_field"><b>Name</b></label><br />
+      <input type="text" id="name_field" oninput="closeAlert('name_field','name_field_error')" placeholder="Name.."><br />
+      <div id="name_field_error"  style="display:none"><b style="font-size:12px;color:red">Required</b></div>
+      <label for="state_field"><b>State</b></label><br />
+      <select id="state_field">
+        <option value="OnebyOne">One by One</option>
+        <option value="OnebyMore">One by More</option>
+        <option value="MorebyMore">More by More</option>
+      </select>
+      <br />
+      <label for="centre_field"><b>Centre</b></label><br />
+      <select id="centre_field" onselect="closeAlert('centre_field','centre_field_error')">
+        <option value="CentralandWestDistrict">Central and West District Centre</option>
+        <option value="EasternDistrict">Eastern District Centre</option>
+        <option value="SouthernDistrict">Southern District Centre</option>
+        <option value="WanChaiDistrict">Wan Chai District Centre</option>
+        <option value="KowloonCityDistrict">Kowloon City District Centre</option>
+        <option value="KwunTongDistrict"> Kwun Tong District Centre</option>
+        <option value="ShamShuiPoDistrict">Sham Shui Po District Centre</option>
+        <option value="WongTaiSinDistrict">Wong Tai Sin District Centre</option>
+        <option value="YauTsimMongDistrict">Yau Tsim Mong District Centre</option>
+        <option value="IslandDistrict">Island District Centre</option>
+        <option value="KwaiTsingDistrict">Kwai Tsing District Centre</option>
+        <option value="NorthDistrict">North District Centre</option>
+        <option value="SaiKungDistrict">Sai Kung District Centre</option>
+        <option value="ShaTinDistrict">Sha Tin District Centre</option>
+        <option value="TaiPoDistrict">Tai Po District Centre</option>
+        <option value="TsuenWanDistrict">Tsuen Wan District Centre</option>
+        <option value="TuenMunDistrict">Tuen Mun District Centre</option>
+        <option value="YuenLongDistrict">Yuen Long District Centre</option>
+      </select>
+      <br />
+      <div id="centre_field_error"  style="display:none"><b style="font-size:12px;color:red">You must select a state</b></div>
+      <label for="date_field"><b>Date</b></label><br />
+      <input type="date" id="date_field" oninput="closeAlert('date_field','date_field_error')" min="2021-05-06">
+      <br />
+      <div id="date_field_error"  style="display:none"><b style="font-size:12px;color:red">You must select a date</b></div>
+      <label for="cost_field"><b>Cost</b></label><br />
+      <input type="number" id="cost_field" oninput="closeAlert('cost_field','cost_field_error')" min="0" placeholder="Cost.."><br />
+      <div id="cost_field_error"  style="display:none"><b style="font-size:12px;color:red">Required</b></div>
+      <label for="tags_field"><b>Tags (Select the more option, CTRL or CMD + Click the Options)</b></label><br />
+      <select id="tags_field" multiple="multiple" size="5">
+        <option value="Beginner">Beginner</option>
+        <option value="Intermediate">Intermediate</option>
+        <option value="Cantonese">Cantonese</option>
+        <option value="English">English</option>
+        <option value="Mandarin">Mandarin</option>
+    </select>
+    <br /> 
+ 
+
+      <label for="description_field">Description:</label><br />
+      <div class="row">
+        
+      <textarea id="description_field" style="width:40%;margin-right: 10%;" rows="10" cols="100">
+      </textarea>
+        <div class="jumbotron text-center"  style="margin: auto;">
+        <h2 style="color:#6c757d;">Upload yoga class demo</h2>
+        <p class="lead text-muted mt-3">You can post the short video to demo your class</p>
+        <a class="btn btn-primary mt-3"  href="#"  style="text-decoration: none;"
+          role="button"><label for='imgupload'> Upload</label></a>
+      </div>
+      <input type="file" id="imgupload" style="display:none"/>
+      </div>
+      <div><input class="submit" type="submit" value="+ POST"></div>
+    </form>
+
+  </div>
+</body>
+
+</html>

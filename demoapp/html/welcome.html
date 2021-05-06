@@ -1,13 +1,84 @@
-<!DOCTYPE html>
 <html>
 <head>
-  <title>Welcome Page</title>
-  <link href="demo.css" media="all" rel="stylesheet" type="text/css">
+  <style>
+    body{
+      background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.6)),url('Background.jpg');
+      margin: 0px;
+       background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: 100% 100%;
+      color:white;
+    }
+    a{
+      color:white;
+    }
+    .row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    text-align: center;
+    justify-content: center !important;
+    position: relative;
+  }
+  .imgbutton{
+    padding-left: 10%;
+    padding-right: 10%;
+    
+  }
+  .navigation {
+    transition: .3s all;
+    background: 	#F3F3FA;
+    height: 5%;
+    width: 110%;
+    position: relative;
+}
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+  </style>
+	<title>Yoga Main Page</title>
 </head>
-<body>
-<div id='container'>
-  <h1>Welcome Page</h1>
-  <p>Login succeeded. Now you can <a href=".">logout</a>.</p>
+<body  style="overflow-x:hidden;">
+  <div class="header  navigation">
+    <div class="container">
+      <h3 style="padding-left: 20px;color:black">Wecome back, abcgroup</h3>
+ </div>
+ </div>
+
+	<h2 style="padding-bottom:8%;margin:8px;padding-left: 24px;padding-top:3%;">Featured</h2>
+	<br />
+  <div class="row">
+  <div class="imgbutton">
+    <img src="../createclass.png" alt="Create a new yoga class"  height="200" width="200px" onclick="window.location ='createyogaclass.html'">
+    <h3><span onclick="window.location ='createyogaclass.html'" >Create a new yoga class</span></h3>
+  </div>
+
+  <div class="imgbutton">
+    <img src="timeschedule.png" alt="Check time schedule"  height="200" onclick="window.location ='#'">
+    <h3><span  onclick="window.location ='#'" >Check time schedule</span></h3>
+  </div>
+  <div class="imgbutton">
+    <img src="personalprofile.png" alt="Personal profile"  height="200" onclick="window.location ='#'">
+    <h3><span  onclick="window.location ='#'" >Personal profile</span></h3>
+  </div>
+
 </div>
+<div style="padding-left: 40px;padding-top:6%;">
+	<h1>News</h1>
+  <p>New yoha plan! Up to 30% off discount<br /></p>
+	<div style="  position: relative; display: flex;">	<a href="#"  style="padding-top: 3px; " >Learn more</a>
+<img  style="padding-left: 10px;" src="next.png" alt="next" height="24px"></div>
+</div>
+	<h4><p align="right" style="padding-right: 1%;padding-top:4%;"><a href="#">Any problems? tell us!</a></p></h4>
 </body>
 </html>

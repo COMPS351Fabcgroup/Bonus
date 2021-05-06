@@ -29,7 +29,7 @@ Running tests
 The `test cases`_ are located in the ``login_tests`` directory. They can be
 executed using the ``robot`` command::
 
-    robot login_tests
+    robot tests
 
 .. note:: If you are using Robot Framework 2.9 or earlier, you need to
           use the ``pybot`` command instead.
@@ -37,8 +37,8 @@ executed using the ``robot`` command::
 You can also run an individual test case file and use various command line
 options supported by Robot Framework::
 
-    robot login_tests/valid_login.robot
-    robot --test InvalidUserName --loglevel DEBUG login_tests
+    robot tests/class_created.robot
+    robot --test InvalidUserName --loglevel DEBUG tests
 
 User Name : abcgroup
 Password : abc123##

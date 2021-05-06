@@ -8,13 +8,13 @@ Library           SeleniumLibrary
 
 *** Variables ***
 ${SERVER}         localhost:7272
-${BROWSER}        Firefox
+${BROWSER}        Chrome
 ${DELAY}          0
 ${VALID USER}     abcgroup
 ${VALID PASSWORD} abc123##
 ${LOGIN URL}      http://${SERVER}/
 ${WELCOME URL}    http://${SERVER}/welcome.html
-${ERROR URL}      http://${SERVER}/error.html
+${CREATEYOGACLASS URL}      http://${SERVER}/createyogaclass.html
 
 *** Keywords ***
 Open Browser To Login Page
